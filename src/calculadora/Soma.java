@@ -20,6 +20,7 @@ public class Soma extends JFrame{
     JButton multiplicacao;
     JButton divisao;
     JButton subtracao;
+    JButton limpar;
     public Soma() {
         super("Exemplo de soma");
         Container tela = getContentPane();
@@ -33,12 +34,14 @@ public class Soma extends JFrame{
         multiplicacao = new JButton("Multiplicação");
         divisao = new JButton("Divisão");
         subtracao = new JButton("Subtração");
+        limpar = new JButton("Limpar");
         
         rotulo1.setBounds(50,20,100,20); rotulo2.setBounds(50,60,100,20);
         texto1.setBounds(120,20,200,20); texto2.setBounds(120,60,200,20);
         exibir.setBounds(50,120,200,20); somar.setBounds(50,100,80,20);
         multiplicacao.setBounds(130, 100, 80, 20); divisao.setBounds(210, 100, 80, 20);
         subtracao.setBounds(290, 100, 80, 20);
+        limpar.setBounds(170, 150, 80, 20);
         
         
         somar.addActionListener(
@@ -94,6 +97,16 @@ public class Soma extends JFrame{
                     }
                 }
             );
+        limpar.addActionListener(
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        texto1.setText(null);
+                        texto2.setText(null);
+                        exibir.setText(null);
+                        texto1.requestFocus();
+                    }
+                }
+            );
         exibir.setVisible(false);
         
         tela.add(rotulo1); tela.add(rotulo2);
@@ -102,6 +115,7 @@ public class Soma extends JFrame{
         tela.add(multiplicacao);
         tela.add(divisao);
         tela.add(subtracao);
+        tela.add(limpar);
         
         setSize(400, 250);
         setVisible(true);
